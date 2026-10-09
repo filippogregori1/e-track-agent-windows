@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- L'agente Windows: icona nella tray (WinForms), lettori dei segnali Win32/WinRT, campionatore, sync.
+       TFM con l'SDK di Windows 10 2004 (19041) per le sessioni multimediali (Windows.Media.Control);
+       gira da Windows 10 1809 (17763) in su. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>activity-tracker</AssemblyName>
+    <RootNamespace>ActivityTracker.Windows</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\..\assets\activity-tracker.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationVisualStyles>true</ApplicationVisualStyles>
+    <ApplicationDefaultFont>Segoe UI, 9pt</ApplicationDefaultFont>
+    <AssemblyTitle>activity-tracker</AssemblyTitle>
+    <Description>Misura l'uso del PC e lo invia a equipe-track</Description>
+    <!-- Pubblicazione: un solo .exe autosufficiente (runtime .NET incluso), compresso. Vedi scripts/build.sh. -->
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>embedded</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityTracker.Core\ActivityTracker.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\assets\activity-tracker.ico" LogicalName="activity-tracker.ico" />
+    <EmbeddedResource Include="..\..\assets\tray-tracking.ico" LogicalName="tray-tracking.ico" />
+    <EmbeddedResource Include="..\..\assets\tray-idle.ico" LogicalName="tray-idle.ico" />
+  </ItemGroup>
+</Project>

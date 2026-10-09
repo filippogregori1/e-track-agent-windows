@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Logica pura e verificabile su qualunque sistema: modello, motore, regole, report, storage, sync.
+       Nessuna dipendenza da Windows: gira anche sotto le verifiche su macOS/Linux. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>ActivityTracker.Core</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+    <!-- SQLite nativo aggiornato: la 2.1.11 portata da Microsoft.Data.Sqlite ha una vulnerabilità nota (GHSA-2m69-gcr7-jv3q). -->
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.13" />
+  </ItemGroup>
+</Project>

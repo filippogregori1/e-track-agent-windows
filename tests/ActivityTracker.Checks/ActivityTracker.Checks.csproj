@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Verifiche della logica Core, riscritte da ActivityTrackerChecks dell'agente Mac (stessi casi, stessi numeri),
+       più quelle delle regole proprie di Windows. Esce con codice 1 se una verifica fallisce.
+       Girano su qualunque sistema: dotnet run, progetto tests/ActivityTracker.Checks. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>ActivityTracker.Checks</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ActivityTracker.Core\ActivityTracker.Core.csproj" />
+  </ItemGroup>
+</Project>

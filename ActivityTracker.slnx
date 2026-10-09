@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ActivityTracker.Core/ActivityTracker.Core.csproj" />
+    <Project Path="src/ActivityTracker.Windows/ActivityTracker.Windows.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ActivityTracker.Checks/ActivityTracker.Checks.csproj" />
+  </Folder>
+</Solution>

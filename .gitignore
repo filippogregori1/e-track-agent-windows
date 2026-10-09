@@ -1,0 +1,10 @@
+bin/
+obj/
+build/
+dist/
+*.sqlite*
+.DS_Store
+.vs/
+*.user
+.tools/
+.claude/scheduled_tasks.lock

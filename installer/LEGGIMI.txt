@@ -1,0 +1,99 @@
+e-track agent per Windows — installazione
+=========================================
+
+e-track agent è l'agente di equipe-track per Windows: un'app che vive come
+icona nella barra delle applicazioni, vicino all'orologio, misura il tempo
+di uso del PC e lo invia a equipe-track.
+Funziona su Windows 10 (versione 1809 o successiva) e Windows 11, a 64 bit.
+Non servono diritti di amministratore.
+Una volta installato, sul PC compare con il nome «activity-tracker».
+
+
+1. INSTALLAZIONE
+----------------
+
+1. Fai doppio clic sul file e-track-agent-windows-setup.exe.
+2. Se compare l'avviso blu di Windows, segui il passo 2 qui sotto.
+3. Nell'installazione premi "Avanti" e poi "Fine" (lascia spuntato
+   "Avvia activity-tracker adesso").
+
+L'app si installa solo per il tuo utente, in
+%LOCALAPPDATA%\Programs\activity-tracker, e parte da sola a ogni accesso
+a Windows.
+
+
+2. PRIMO AVVIO: "ULTERIORI INFORMAZIONI" → "ESEGUI COMUNQUE"
+-----------------------------------------------------------
+
+Il programma di installazione non è firmato digitalmente, quindi al primo
+avvio Windows SmartScreen lo blocca con una finestra blu:
+"Windows ha protetto il PC". È normale e succede una volta sola.
+
+1. Nella finestra blu clicca la scritta "Ulteriori informazioni"
+   (sotto il testo, non c'è un pulsante finché non la clicchi).
+2. Compare il pulsante "Esegui comunque": cliccalo.
+3. L'installazione parte normalmente.
+
+NON premere "Non eseguire": chiude la finestra senza installare (puoi
+comunque riprovare facendo di nuovo doppio clic sul file).
+
+Se il file è stato scaricato da Internet e Windows non mostra nemmeno
+"Ulteriori informazioni", fai clic destro sul file → Proprietà → nella
+scheda Generale spunta "Annulla blocco" → OK, poi riapri il file.
+
+Alcuni antivirus aziendali possono chiedere conferma per lo stesso motivo:
+in quel caso rivolgiti a chi gestisce i PC.
+
+
+3. COLLEGAMENTO A EQUIPE-TRACK
+------------------------------
+
+Chi gestisce equipe-track ti fornisce:
+  - l'indirizzo del server (es. https://track.esempio.it);
+  - il codice di collegamento dell'agente (il "token agente");
+  - in alcuni casi anche un "segreto gate".
+
+Al primo avvio si aprono da sole le Impostazioni. In seguito: clic destro
+sull'icona di activity-tracker → "Impostazioni…".
+
+1. Nella sezione "equipe-track" compila:
+     Server        → l'indirizzo del server, completo di https://
+     Token agente  → il codice di collegamento
+     Segreto gate  → solo se te l'hanno dato, altrimenti lascialo vuoto
+2. Premi "Salva nelle credenziali di Windows".
+
+Server, token e segreto vengono salvati in Gestione credenziali di Windows
+(cifrati con il tuo profilo utente), mai in file di testo.
+
+Lo stato del collegamento compare in cima alla sezione e nella finestrella
+del report. Il tempo viene tracciato solo mentre hai una sessione aperta
+(e non in pausa) su equipe-track: l'icona ha le barre verdi quando traccia,
+grigie quando non traccia.
+
+
+4. USO
+------
+
+- Clic sinistro sull'icona: il report di oggi, per esempio
+      YouTube   33,6%  2h35  (di cui passivo 1h50)
+      Attivo senza utilizzo   22,0%  1h42
+      Totale 100,0% · Fuori sessione 3h10
+- Clic destro sull'icona: report, Impostazioni, Invia ora, Esci.
+- Se l'icona non si vede, è tra le icone nascoste: clicca la freccia ^
+  vicino all'orologio. Puoi trascinarla sulla barra per tenerla sempre
+  visibile.
+
+Cosa esce dal PC: solo nomi già aggregati (es. "YouTube", "Microsoft Word"),
+stato e durata. Mai indirizzi web, titoli di finestre o nomi di file.
+
+
+5. AGGIORNAMENTI E DISINSTALLAZIONE
+-----------------------------------
+
+Per aggiornare: apri il nuovo e-track-agent-windows-setup.exe. Chiude
+da solo la versione in esecuzione (dopo aver salvato e inviato gli ultimi
+dati) e la sostituisce. Dati e collegamento restano.
+
+Per disinstallare: Impostazioni di Windows → App → App installate →
+activity-tracker → Disinstalla. Ti verrà chiesto se eliminare anche i dati
+misurati su questo PC e il collegamento a equipe-track.

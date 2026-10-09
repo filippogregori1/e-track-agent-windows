@@ -1,0 +1,15 @@
+<Project>
+  <!-- Impostazioni comuni ai tre progetti. La versione è quella dell'agente Mac (0.3.0): stesso contratto. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>0.3.0</Version>
+    <Company>E-quipe</Company>
+    <Product>activity-tracker</Product>
+    <Copyright>E-quipe</Copyright>
+    <SatelliteResourceLanguages>it;en</SatelliteResourceLanguages>
+    <!-- Si compila anche da macOS/Linux (cross-compilazione verso win-x64). -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+</Project>
