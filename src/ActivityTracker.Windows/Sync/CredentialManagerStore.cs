@@ -83,7 +83,7 @@ public sealed class CredentialManagerStore : ITokenStore
             {
                 Type = CRED_TYPE_GENERIC,
                 TargetName = TargetPrefix + account,
-                Comment = "activity-tracker: collegamento a equipe-track",
+                Comment = AppIdentity.DisplayName + ": collegamento a equipe-track",
                 CredentialBlobSize = bytes.Length,
                 CredentialBlob = blob,
                 Persist = CRED_PERSIST_LOCAL_MACHINE,

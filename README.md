@@ -4,7 +4,8 @@ Agente Windows gemello di [activity-tracker per macOS](../activity-tracker/READM
 misura come usi il PC, salva tutto in SQLite in locale, mostra il report del giorno e — solo durante una sessione di
 lavoro aperta su equipe-track — gli manda i tratti aggregati. **Stesse regole, stesso contratto di misura, stesso
 collegamento a equipe-track** del Mac. Per l'utente il prodotto si chiama **e-track agent** e si scarica come
-`e-track-agent-windows-setup.exe`; dentro (progetto, eseguibile, cartelle, dati) resta `activity-tracker`.
+`e-track-agent-windows-setup.exe`, e con questo nome compare ovunque lo veda (installer, tray, finestre, menu Start,
+«App installate»); dentro (progetto, eseguibile, cartelle, dati, avvio automatico) resta `activity-tracker`.
 
 ```
 YouTube   33,6%  2h35  (di cui passivo 1h50)

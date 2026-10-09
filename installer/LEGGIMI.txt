@@ -6,7 +6,6 @@ icona nella barra delle applicazioni, vicino all'orologio, misura il tempo
 di uso del PC e lo invia a equipe-track.
 Funziona su Windows 10 (versione 1809 o successiva) e Windows 11, a 64 bit.
 Non servono diritti di amministratore.
-Una volta installato, sul PC compare con il nome «activity-tracker».
 
 
 1. INSTALLAZIONE
@@ -15,7 +14,7 @@ Una volta installato, sul PC compare con il nome «activity-tracker».
 1. Fai doppio clic sul file e-track-agent-windows-setup.exe.
 2. Se compare l'avviso blu di Windows, segui il passo 2 qui sotto.
 3. Nell'installazione premi "Avanti" e poi "Fine" (lascia spuntato
-   "Avvia activity-tracker adesso").
+   "Avvia e-track agent adesso").
 
 L'app si installa solo per il tuo utente, in
 %LOCALAPPDATA%\Programs\activity-tracker, e parte da sola a ogni accesso
@@ -54,7 +53,7 @@ Chi gestisce equipe-track ti fornisce:
   - in alcuni casi anche un "segreto gate".
 
 Al primo avvio si aprono da sole le Impostazioni. In seguito: clic destro
-sull'icona di activity-tracker → "Impostazioni…".
+sull'icona di e-track agent → "Impostazioni…".
 
 1. Nella sezione "equipe-track" compila:
      Server        → l'indirizzo del server, completo di https://
@@ -95,5 +94,5 @@ da solo la versione in esecuzione (dopo aver salvato e inviato gli ultimi
 dati) e la sostituisce. Dati e collegamento restano.
 
 Per disinstallare: Impostazioni di Windows → App → App installate →
-activity-tracker → Disinstalla. Ti verrà chiesto se eliminare anche i dati
+e-track agent → Disinstalla. Ti verrà chiesto se eliminare anche i dati
 misurati su questo PC e il collegamento a equipe-track.

@@ -129,7 +129,7 @@ toccare più nulla. Guarda il report a **2 min 30 s** e a **3 min 15 s** dall'ul
   «Ora: attivo su Blocco note · fermo da 2m»;
 - a 3:15 quei minuti **sono spariti da Blocco note** e compaiono in **Attivo senza utilizzo** (~3 min);
 - il totale resta 100,0% in entrambi i momenti;
-- il report aperto non sposta tempo su «activity-tracker»: conta l'ultima app in primo piano.
+- il report aperto non sposta tempo su «e-track agent»: conta l'ultima app in primo piano.
 
 > La finestrella si aggiorna da sola ogni 5 s mentre è aperta: non serve toccare nulla per vedere il cambio.
 

@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Version>0.3.0</Version>
     <Company>E-quipe</Company>
-    <Product>activity-tracker</Product>
+    <Product>e-track agent</Product>
     <Copyright>E-quipe</Copyright>
     <SatelliteResourceLanguages>it;en</SatelliteResourceLanguages>
     <!-- Si compila anche da macOS/Linux (cross-compilazione verso win-x64). -->

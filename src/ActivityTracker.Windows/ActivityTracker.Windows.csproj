@@ -14,7 +14,8 @@
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <ApplicationVisualStyles>true</ApplicationVisualStyles>
     <ApplicationDefaultFont>Segoe UI, 9pt</ApplicationDefaultFont>
-    <AssemblyTitle>activity-tracker</AssemblyTitle>
+    <!-- Descrizione del file: è il nome che Windows mostra in Gestione attività e in «App di avvio». -->
+    <AssemblyTitle>e-track agent</AssemblyTitle>
     <Description>Misura l'uso del PC e lo invia a equipe-track</Description>
     <!-- Pubblicazione: un solo .exe autosufficiente (runtime .NET incluso), compresso. Vedi scripts/build.sh. -->
     <SelfContained>true</SelfContained>

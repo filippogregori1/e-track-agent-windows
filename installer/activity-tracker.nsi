@@ -1,4 +1,4 @@
-; Installer di activity-tracker per Windows (NSIS 3, Modern UI 2).
+; Installer di e-track agent (activity-tracker) per Windows (NSIS 3, Modern UI 2).
 ;
 ; Si installa per l'utente corrente, senza diritti di amministratore, in %LOCALAPPDATA%\Programs\activity-tracker:
 ; nessun avviso UAC, e l'agente gira come l'utente che misura. Lo compila scripts/build.sh (o build.ps1):
@@ -21,26 +21,29 @@ SetCompressorDictSize 64
   !define OUT_FILE "..\dist\e-track-agent-windows-setup.exe"
 !endif
 
+; APP_NAME: nome interno (cartella, avvio automatico, chiave di disinstallazione: invariati per gli aggiornamenti).
+; PRODUCT_NAME: il nome che l'utente vede.
 !define APP_NAME "activity-tracker"
+!define PRODUCT_NAME "e-track agent"
 !define APP_EXE "activity-tracker.exe"
 !define PUBLISHER "E-quipe"
 !define UNINSTALL_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}"
 !define RUN_KEY "Software\Microsoft\Windows\CurrentVersion\Run"
 
-Name "${APP_NAME}"
+Name "${PRODUCT_NAME}"
 OutFile "${OUT_FILE}"
 InstallDir "$LOCALAPPDATA\Programs\${APP_NAME}"
 InstallDirRegKey HKCU "${UNINSTALL_KEY}" "InstallLocation"
 RequestExecutionLevel user
 ShowInstDetails nevershow
 ShowUninstDetails nevershow
-BrandingText "${APP_NAME} ${VERSION}"
+BrandingText "${PRODUCT_NAME} ${VERSION}"
 
 VIProductVersion "${VERSION}.0"
-VIAddVersionKey /LANG=1040 "ProductName" "${APP_NAME}"
+VIAddVersionKey /LANG=1040 "ProductName" "${PRODUCT_NAME}"
 VIAddVersionKey /LANG=1040 "ProductVersion" "${VERSION}"
 VIAddVersionKey /LANG=1040 "FileVersion" "${VERSION}"
-VIAddVersionKey /LANG=1040 "FileDescription" "Installazione di ${APP_NAME}"
+VIAddVersionKey /LANG=1040 "FileDescription" "Installazione di ${PRODUCT_NAME}"
 VIAddVersionKey /LANG=1040 "CompanyName" "${PUBLISHER}"
 VIAddVersionKey /LANG=1040 "LegalCopyright" "${PUBLISHER}"
 
@@ -51,14 +54,14 @@ VIAddVersionKey /LANG=1040 "LegalCopyright" "${PUBLISHER}"
 !define MUI_UNICON "..\assets\activity-tracker.ico"
 !define MUI_ABORTWARNING
 
-!define MUI_WELCOMEPAGE_TITLE "Installazione di ${APP_NAME} ${VERSION}"
-!define MUI_WELCOMEPAGE_TEXT "${APP_NAME} misura come usi il PC (app e siti in primo piano, inattività, video) e lo invia a equipe-track solo mentre hai una sessione di lavoro aperta.$\r$\n$\r$\nSi installa solo per il tuo utente e parte da sola all'accesso a Windows, come icona nella barra delle applicazioni, vicino all'orologio.$\r$\n$\r$\nPremi Avanti per continuare."
+!define MUI_WELCOMEPAGE_TITLE "Installazione di ${PRODUCT_NAME} ${VERSION}"
+!define MUI_WELCOMEPAGE_TEXT "${PRODUCT_NAME} misura come usi il PC (app e siti in primo piano, inattività, video) e lo invia a equipe-track solo mentre hai una sessione di lavoro aperta.$\r$\n$\r$\nSi installa solo per il tuo utente e parte da sola all'accesso a Windows, come icona nella barra delle applicazioni, vicino all'orologio.$\r$\n$\r$\nPremi Avanti per continuare."
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_INSTFILES
-!define MUI_FINISHPAGE_TITLE "${APP_NAME} è installato"
+!define MUI_FINISHPAGE_TITLE "${PRODUCT_NAME} è installato"
 !define MUI_FINISHPAGE_TEXT "L'icona compare nella barra delle applicazioni, vicino all'orologio (se non la vedi, apri la freccia ^ delle icone nascoste).$\r$\n$\r$\nAl primo avvio si aprono le Impostazioni: inserisci l'indirizzo del server e il token che ti ha dato chi gestisce equipe-track."
 !define MUI_FINISHPAGE_RUN "$INSTDIR\${APP_EXE}"
-!define MUI_FINISHPAGE_RUN_TEXT "Avvia ${APP_NAME} adesso"
+!define MUI_FINISHPAGE_RUN_TEXT "Avvia ${PRODUCT_NAME} adesso"
 !define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\LEGGIMI.txt"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Apri LEGGIMI"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
@@ -87,13 +90,15 @@ Section "Installa"
   File "/oname=LEGGIMI.txt" "LEGGIMI.txt"
   WriteUninstaller "$INSTDIR\Disinstalla.exe"
 
-  CreateShortcut "$SMPROGRAMS\${APP_NAME}.lnk" "$INSTDIR\${APP_EXE}" "" "$INSTDIR\${APP_EXE}" 0
+  ; Il collegamento con il vecchio nome (installazioni precedenti) lascia il posto a quello nuovo.
+  Delete "$SMPROGRAMS\${APP_NAME}.lnk"
+  CreateShortcut "$SMPROGRAMS\${PRODUCT_NAME}.lnk" "$INSTDIR\${APP_EXE}" "" "$INSTDIR\${APP_EXE}" 0
 
   ; Avvio all'accesso a Windows (per utente). L'app lo gestisce anche dalle Impostazioni.
   WriteRegStr HKCU "${RUN_KEY}" "${APP_NAME}" '"$INSTDIR\${APP_EXE}" --autostart'
 
   ; Voce in Impostazioni › App › App installate.
-  WriteRegStr HKCU "${UNINSTALL_KEY}" "DisplayName" "${APP_NAME}"
+  WriteRegStr HKCU "${UNINSTALL_KEY}" "DisplayName" "${PRODUCT_NAME}"
   WriteRegStr HKCU "${UNINSTALL_KEY}" "DisplayVersion" "${VERSION}"
   WriteRegStr HKCU "${UNINSTALL_KEY}" "Publisher" "${PUBLISHER}"
   WriteRegStr HKCU "${UNINSTALL_KEY}" "DisplayIcon" "$INSTDIR\${APP_EXE}"
@@ -118,6 +123,7 @@ Section "Uninstall"
   Delete "$INSTDIR\LEGGIMI.txt"
   Delete "$INSTDIR\Disinstalla.exe"
   RMDir "$INSTDIR"
+  Delete "$SMPROGRAMS\${PRODUCT_NAME}.lnk"
   Delete "$SMPROGRAMS\${APP_NAME}.lnk"
   DeleteRegValue HKCU "${RUN_KEY}" "${APP_NAME}"
   DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" "${APP_NAME}"

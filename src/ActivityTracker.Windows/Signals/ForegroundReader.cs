@@ -22,7 +22,7 @@ public sealed class ForegroundReader
 
     /// <summary>
     /// L'app in primo piano. Le finestre dell'agente (report, Impostazioni) non contano: aprire il report dall'icona
-    /// non deve spostare il tempo su «activity-tracker», vale l'ultima app vera in primo piano (sul Mac il pannello
+    /// non deve spostare il tempo su «e-track agent», vale l'ultima app vera in primo piano (sul Mac il pannello
     /// della barra menu non cambia l'app in primo piano).
     /// </summary>
     public AppWindow? Current()

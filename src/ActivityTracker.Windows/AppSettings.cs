@@ -25,7 +25,7 @@ public sealed class AppSettings
         "Amazon Music", "winamp", "MediaMonkey",
         // tengono acceso lo schermo senza video
         "PowerToys.Awake", "caffeine", "caffeine32", "caffeine64", "DontSleep", "DontSleep_x64", "Insomnia", "NoSleep",
-        AppIdentity.DisplayName,
+        AppIdentity.InternalName,
     ];
 
     private sealed class Data

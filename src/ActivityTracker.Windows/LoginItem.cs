@@ -12,7 +12,7 @@ public static class LoginItem
 {
     private const string RunKey = @"Software\Microsoft\Windows\CurrentVersion\Run";
     private const string ApprovedKey = @"Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run";
-    public const string ValueName = Core.AppIdentity.DisplayName;
+    public const string ValueName = Core.AppIdentity.InternalName;
 
     private static string Command => $"\"{Environment.ProcessPath}\" --autostart";
 
